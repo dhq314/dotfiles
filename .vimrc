@@ -3,6 +3,8 @@ set nocompatible
 " 不在设定在插入状态无法用退格和delete删除回车符
 set backspace=indent,eol,start
 
+set background=dark
+
 " 以 desert 为配色方案
 colorscheme desert
 
