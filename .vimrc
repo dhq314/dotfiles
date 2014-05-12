@@ -66,6 +66,9 @@ set ruler
 "显示括号对应
 set showmatch
 
+" Show the mode
+set showmode 
+
 " 实时显示搜索结果
 set incsearch
 
@@ -97,7 +100,7 @@ language messages zh_CN.utf-8
 
 
 if has("gui_running")
-    set go=aAce                 " 去掉难看的工具栏和滑动条
+    "set go=aAce                 " 去掉难看的工具栏和滑动条
     set showtabline=2           " 开启自带的tab栏
 endif
 
