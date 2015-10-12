@@ -19,10 +19,10 @@ endif
 " set nu
 set number
 
-runtime! autoload/pathogen.vim
-if exists("*pathogen#infect")
-    silent! execute pathogen#infect()
-endif
+"runtime! autoload/pathogen.vim
+"if exists("*pathogen#infect")
+ "   silent! execute pathogen#infect()
+"endif
 
 "语法高亮
 syntax on
