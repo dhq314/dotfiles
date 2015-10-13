@@ -1,11 +1,20 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Setup terminal, and turn on colors 颜色配置
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+
+# Enable color in grep
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='3;33'
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="fox"
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,7 +49,7 @@ ZSH_THEME="fox"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git svn)
+plugins=(git brew osx svn python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,6 +73,18 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias free="python /Users/dengjoe/python/free.py"
 
+# -------------------------------------------------------------------
+# Git
+# -------------------------------------------------------------------
+alias gam="git commit -a -m"
+alias gc= "git checkout"
+alias gs="git status"
+alias gp='git push'
+alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit "
+alias gb='git branch'
+alias gd='git diff' #显示缓存变化
+alias ghard='git reset --hard'
+
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
@@ -71,6 +92,7 @@ alias free="python /Users/dengjoe/python/free.py"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scriptingi
 
+# 中文支持
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
