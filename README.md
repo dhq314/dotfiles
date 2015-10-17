@@ -1,4 +1,3 @@
-dotfiles
-========
+# dotfiles
 
-My some configure files
+My Some Configure Files
