@@ -61,7 +61,7 @@ promptinit
 # Customize to your needs...
 #export PATH=/Users/dengjoe/erlang/kerl/r15b03/bin:/usr/local/Cellar/subversion/1.7.9/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:$PATH
 
-export PATH=/usr/local/share/npm/bin:/usr/local/Cellar/subversion/1.7.9/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
+export PATH=/usr/local/share/npm/bin:/usr/local/Cellar/subversion/1.7.9/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
 
 
 

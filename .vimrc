@@ -1,25 +1,86 @@
 " 不兼容 vi 模式
 set nocompatible
-" 不在设定在插入状态无法用退格和delete删除回车符
-set backspace=indent,eol,start
-
-set background=dark
-
 filetype off    "require
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
 
+Bundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'Yggdroot/indentLine'
+Bundle 'jiangmiao/auto-pairs'
+
 Bundle 'scrooloose/nerdtree'
-"...
+Bundle 'bling/vim-airline'
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/syntastic'
+"""
 
 
-" 以 desert 为配色方案
-colorscheme desert
+"""
+" The NERD Tree
+" https://github.com/scrooloose/nerdtree
+"""
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=30
+map <F2> :NERDTreeToggle<CR>
+
+"""
+" vim-airline
+" https://github.com/bling/vim-airline
+"""
+set laststatus=2
+
+"""
+" Tagbar
+" https://github.com/majutsushi/tagbar
+"""
+"nmap <Leader>tb :TagbarToggle<CR>		"快捷键设置
+let g:tagbar_ctags_bin='ctags'			"ctags程序的路径
+let g:tagbar_width=30					"窗口宽度的设置
+map <F3> :Tagbar<CR>
+"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() 	"
+
+"""
+" Dracula Theme
+" https://github.com/zenorocha/dracula-theme
+"""
+let g:dracula_italic=1
+
+"""
+" Syntastic
+" https://github.com/scrooloose/syntastic
+"""
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_highlighting=1
+" 修改高亮的背景色, 适应主题
+highlight SyntasticErrorSign guifg=white guibg=black
+" to see error location list
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 10
+function! ToggleErrors()
+    let old_last_winnr = winnr('$')
+    lclose
+    if old_last_winnr == winnr('$')
+        " Nothing was closed, open syntastic error location panel
+        Errors
+    endif
+endfunction
+" \s
+nnoremap <Leader>s :call ToggleErrors()<cr>         "
+
+
+"语法高亮
+syntax on
+
+"color Dracula
+colorscheme Dracula
 
 " 设置字体
 if has("win32")
@@ -32,8 +93,6 @@ endif
 " set nu
 set number
 
-"语法高亮
-syntax on
 "打开插件
 filetype plugin indent on
 
@@ -79,13 +138,6 @@ set showmode
 " 实时显示搜索结果
 set incsearch
 
-" 设置命令行为两行
-"set cmdheight=2
-" 设置状态栏数
-set laststatus=1 
-
-nmap <C-d> :NERDTreeToggle<cr>
-
 "代码被修改时重新载入
 set autoread
 
@@ -101,7 +153,8 @@ set display=lastline
 "解决中文乱码
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,chinese,latin-1
+set fileencodings=utf-8,gb18030,chinese,latin-1
+set helplang=cn
 "解决console输出乱码
 language messages zh_CN.utf-8
 
