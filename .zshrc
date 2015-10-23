@@ -66,6 +66,7 @@ export PATH=/usr/local/share/npm/bin:/usr/local/Cellar/subversion/1.7.9/bin:/usr
 
 
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias mvim=/usr/local/bin/mvim
 alias vi="mvim"
 alias vim="mvim"
 alias py="python"

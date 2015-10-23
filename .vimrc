@@ -5,6 +5,19 @@ set backspace=indent,eol,start
 
 set background=dark
 
+filetype off    "require
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+Bundle 'scrooloose/nerdtree'
+"...
+
+
 " 以 desert 为配色方案
 colorscheme desert
 
@@ -19,16 +32,10 @@ endif
 " set nu
 set number
 
-"runtime! autoload/pathogen.vim
-"if exists("*pathogen#infect")
- "   silent! execute pathogen#infect()
-"endif
-
 "语法高亮
 syntax on
 "打开插件
 filetype plugin indent on
-
 
 "按照C语法自动缩进
 set cindent
@@ -75,7 +82,7 @@ set incsearch
 " 设置命令行为两行
 "set cmdheight=2
 " 设置状态栏数
-set laststatus=2 
+set laststatus=1 
 
 nmap <C-d> :NERDTreeToggle<cr>
 
