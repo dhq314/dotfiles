@@ -1,11 +1,9 @@
 " 不兼容 vi 模式
 set nocompatible
-filetype off    "require
+filetype off        "require
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-" let Vundle manage Vundle
-" required! 
 Bundle 'gmarik/vundle'
 
 Bundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
@@ -16,6 +14,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
 """
 
 
@@ -37,11 +36,11 @@ set laststatus=2
 " Tagbar
 " https://github.com/majutsushi/tagbar
 """
-"nmap <Leader>tb :TagbarToggle<CR>		"快捷键设置
-let g:tagbar_ctags_bin='ctags'			"ctags程序的路径
-let g:tagbar_width=30					"窗口宽度的设置
+"nmap <Leader>tb :TagbarToggle<CR>              "快捷键设置
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'   "ctags程序的路径
+let g:tagbar_width=30                           "窗口宽度的设置
 map <F3> :Tagbar<CR>
-"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() 	"
+"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()"
 
 """
 " Dracula Theme
@@ -74,6 +73,23 @@ function! ToggleErrors()
 endfunction
 " \s
 nnoremap <Leader>s :call ToggleErrors()<cr>         "
+
+"""
+" CtrlP
+" https://github.com/kien/ctrlp.vim
+"""
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
 
 
 "语法高亮
@@ -160,7 +176,14 @@ language messages zh_CN.utf-8
 
 
 if has("gui_running")
-    "set go=aAce                 " 去掉难看的工具栏和滑动条
+    " 隐藏菜单栏
+    set guioptions-=m
+    set guioptions-=T
+    " 菜单乱码
+    if has("win32")
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+    endif
     set showtabline=2           " 开启自带的tab栏
 endif
 
