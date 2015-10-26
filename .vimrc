@@ -72,7 +72,7 @@ function! ToggleErrors()
     endif
 endfunction
 " \s
-nnoremap <Leader>s :call ToggleErrors()<cr>         "
+nnoremap <Leader>s :call ToggleErrors()<cr>
 
 """
 " CtrlP

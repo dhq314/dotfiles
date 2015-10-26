@@ -96,6 +96,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scriptingi
 # 中文支持
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+export LC_CTYPE=zh_CN.UTF-8
 
 export GOROOT=/usr/local/Cellar/go/1.3/libexec
 export GOPATH=/Users/dengjoe/go/heroku
